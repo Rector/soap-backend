@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:rlrl="http://www.kir.ru/soap/backend/roles"
+        xmlns:us="http://www.kir.ru/soap/backend/users"
+        targetNamespace="http://www.kir.ru/soap/backend/users" elementFormDefault="qualified">
+
+    <xs:import schemaLocation="roles.xsd" namespace="http://www.kir.ru/soap/backend/roles"/>
+
+    <xs:element name="getAllUsersRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:element name="getAllUsersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="users" maxOccurs="unbounded" type="us:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getUserByLoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="login" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getUserByLoginResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="us:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="login" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+                <xs:element name="roles" maxOccurs="unbounded" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="us:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="login" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+                <xs:element name="roles" maxOccurs="unbounded" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="us:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteUserByLoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="login" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteUserByLoginResponse">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:complexType name="user">
+        <xs:sequence>
+            <xs:element name="login" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+            <xs:element name="roles" maxOccurs="unbounded" type="rlrl:role"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
