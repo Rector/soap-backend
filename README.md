@@ -1,11 +1,10 @@
-#Проект: SOAP веб-сервис, созданный с использованием Spring Framework.
+# Проект: SOAP веб-сервис, созданный с использованием Spring Framework.
 ___
-##Стек: Spring Framework (Boot, Web Services, JPA Data), SOAP, JAXB, WSDL4J, Flyway, H2 Database, Lombok.
+## Стек: Spring Framework (Boot, Web Services, JPA Data), SOAP, JAXB, WSDL4J, Flyway, H2 Database, Lombok.
 ___
-##Функционал:
+## Функционал:
 ___
 * Реализована возможность получения WSDL-документа.
-
 * Существует возможность поиска и отображения всех пользователей.
 ![](screenshots/users.jpg)
 
